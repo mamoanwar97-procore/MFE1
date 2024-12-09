@@ -2,7 +2,6 @@
   "skeletonUiService": {
     "homeLink": "Home",
     "detailLink": "Detail",
-    "detailTitle": "Detail Page",
-    "homeTitle": "Home Page"
+    "detailTitle": "Detail Page"
   }
 }
