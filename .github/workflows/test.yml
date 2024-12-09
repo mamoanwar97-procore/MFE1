@@ -21,13 +21,17 @@ jobs:
       - name: Run Python script
         run: python python.py
 
+      - name: Make the directory
+        run: mkdir -p /home/runner/work/MFE1/internmediate
+
       - name: Checkout out intermediate repo
         uses: actions/checkout@v3
         with:
           repository: "mamoanwar97-procore/Intermediate"
           token: ${{ secrets.INTERMEDIATE_TOKEN }}
+          path: /home/runner/work/MFE1/internmediate
 
       - name: Copy the specific files
         run: |
           ls -a /home/runner/work/MFE1
-          ls -a /home/runner/work/MFE1/MFE1
+          ls -a /home/runner/work/MFE1/internmediate
