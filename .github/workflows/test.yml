@@ -21,11 +21,6 @@ jobs:
       - name: Run Python script
         run: python python.py
 
-      - name: Set up Git
-        run: |
-          git config --global user.name "mamoanwar97-procore"
-          git config --global user.email "mahmoud.m.anwar@procore.com"
-
       - name: Checkout out intermediate repo
         uses: actions/checkout@v3
         with:
@@ -35,4 +30,4 @@ jobs:
 
       - name: Copy the specific files
         run: |
-          cd ../ && ls -la
+          ls -la /home/runner/work/MFE1/MFE1
