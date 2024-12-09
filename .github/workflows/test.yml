@@ -35,4 +35,4 @@ jobs:
 
       - name: Copy the specific files
         run: |
-          ls -la
+          ls -la ~/github/workspace
