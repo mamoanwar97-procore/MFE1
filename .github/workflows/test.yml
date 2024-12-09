@@ -46,6 +46,7 @@ jobs:
             git checkout -b update-translations-mfe1
           fi
           if [ -n "$(git status --porcelain)" ]; then
+            git pull origin update-translations-mfe1
             git add .
             git commit -m "Update translations 🎉"
             git push origin update-translations-mfe1
