@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -20,3 +20,15 @@ jobs:
 
       - name: Run Python script
         run: python python.py
+
+      - name: Checkout out intermediate repo
+        uses: actions/checkout@v3
+        with:
+          repository: "mamoanwar97-procore/Intermediate"
+          # token: ${{ secrets.INTERMEDIATE_REPO_TOKEN }}
+          ref: "MFE1"
+          path: "/MFE1"
+
+      - name: Copy the specific files
+        run: |
+          ls -la
