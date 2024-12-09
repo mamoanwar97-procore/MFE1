@@ -38,18 +38,7 @@ jobs:
 
       - name: Commit updated translations to intermediate repo
         run: |
-          cd /home/runner/work/MFE1/MFE1/intermediate/intermediate
-          if git show-ref --verify --quiet refs/heads/update-translations-mfe1; then
-            git checkout update-translations-mfe1
-          else
-            git checkout -b update-translations-mfe1
-          fi
-          cp -r /home/runner/work/MFE1/MFE1/translations /home/runner/work/MFE1/MFE1/intermediate
-          if [ -n "$(git status --porcelain)" ]; then
-            git pull origin update-translations-mfe1 --rebase
-            git add .
-            git commit -m "Update translations 🎉"
-            git push origin update-translations-mfe1
-          else
-            echo "No changes to commit"
-          fi
+          ls -la /home/runner/work/MFE1
+          ls -la /home/runner/work/MFE1/MFE1
+          ls -la /home/runner/work/MFE1/MFE1/translations
+          ls -la /home/runner/work/MFE1/MFE1/intermediate/intermediate
