@@ -34,3 +34,5 @@ jobs:
       - name: Copy the specific files
         run: |
           cp -r /home/runner/work/MFE1/MFE1/translations /home/runner/work/MFE1/MFE1/intermediate
+          echo "Copied files"
+          ls -a /home/runner/work/MFE1/MFE1/intermediate
