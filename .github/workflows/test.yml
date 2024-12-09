@@ -28,6 +28,7 @@ jobs:
         run: |
           git config --global user.name "mamoanwar97-procore"
           git config --global user.email "mahmoud.m.anwar@procore.com"
+          git config pull.rebase false
 
       - name: Checkout out intermediate repo
         uses: actions/checkout@v3
