@@ -27,7 +27,6 @@ jobs:
           repository: "mamoanwar97-procore/Intermediate"
           # token: ${{ secrets.INTERMEDIATE_REPO_TOKEN }}
           ref: "MFE1"
-          path: "/MFE1"
 
       - name: Copy the specific files
         run: |
