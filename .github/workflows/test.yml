@@ -24,6 +24,11 @@ jobs:
       - name: Make the directory
         run: mkdir -p /home/runner/work/MFE1/MFE1/intermediate
 
+      - name: Set up Git
+        run: |
+          git config --global user.name "mamoanwar97-procore"
+          git config --global user.email "mahmoud.m.anwar@procore.com"
+
       - name: Checkout out intermediate repo
         uses: actions/checkout@v3
         with:
