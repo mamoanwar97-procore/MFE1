@@ -29,6 +29,5 @@ jobs:
 
       - name: Copy the specific files
         run: |
-          cp -r /home/runner/work/MFE1/translations/* /home/runner/work/MFE1/MFE1
-          cd /home/runner/work/MFE1/MFE1
-          git commit -m "Update files from main repo"
+          ls -a /home/runner/work/MFE1
+          ls -a /home/runner/work/MFE1/MFE1
