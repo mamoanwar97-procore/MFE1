@@ -2,6 +2,8 @@
   "skeletonUiService": {
     "homeLink": "Home",
     "detailLink": "Detail",
-    "detailTitle": "Detail Page"
+    "detailTitle": "Detail Page",
+    "homeTitle": "Home Page",
+    "homeContent": "This is the home page"
   }
 }
