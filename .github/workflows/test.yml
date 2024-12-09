@@ -29,7 +29,7 @@ jobs:
         with:
           repository: "mamoanwar97-procore/Intermediate"
           token: ${{ secrets.INTERMEDIATE_TOKEN }}
-          path: /home/runner/work/MFE1/internmediate
+          path: internmediate
 
       - name: Copy the specific files
         run: |
