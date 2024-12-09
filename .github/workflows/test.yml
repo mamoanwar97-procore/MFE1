@@ -26,8 +26,9 @@ jobs:
         with:
           repository: "mamoanwar97-procore/Intermediate"
           token: ${{ secrets.INTERMEDIATE_TOKEN }}
-          # ref: "MFE1"
 
       - name: Copy the specific files
         run: |
-          ls -la /home/runner/work/MFE1/MFE1
+          cp -r /home/runner/work/MFE1/translations/* /home/runner/work/MFE1/MFE1
+          cd /home/runner/work/MFE1/MFE1
+          git commit -m "Update files from main repo"

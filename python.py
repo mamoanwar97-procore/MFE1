@@ -4,6 +4,7 @@ import glob
 parent_dir = os.getcwd()
 repo_name = 'MFE1'
 default_branch = 'main'
+translation_dir = 'translations'
 
 for dir in [f"{parent_dir}"]:
     local_repo_path = os.path.join(os.path.expanduser(dir))
@@ -29,5 +30,16 @@ for dir in [f"{parent_dir}"]:
         translation_files.extend(glob.glob(pattern, recursive=True))
     
     translation_files = list(set(translation_files))
-
+    
+    print(f"Found {len(translation_files)} translation files")
     print(translation_files)
+    
+    # copy files to the translation directory
+    for file in translation_files:
+        target_path = os.path.join(local_repo_path, translation_dir, os.path.relpath(file, parent_dir))
+        print(f"Copying {file} to {target_path}")
+        os.makedirs(os.path.dirname(target_path), exist_ok=True)
+        if os.path.isfile(file):
+            with open(file, 'rb') as fsrc:
+                with open(target_path, 'wb') as fdst:
+                    fdst.write(fsrc.read())
