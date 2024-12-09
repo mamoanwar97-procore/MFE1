@@ -45,7 +45,7 @@ jobs:
             git checkout -b update-translations-mfe1
           fi
           git remote get-url origin
-          cp -r /home/runner/work/MFE1/MFE1/translations/* /home/runner/work/MFE1/MFE1/intermediate/MFE1
+          cp -r /home/runner/work/MFE1/MFE1/translations/* /home/runner/work/MFE1/MFE1/intermediate/MFE1/
           if [ -n "$(git status --porcelain)" ]; then
             git add .
             git commit -m "Update translations 🎉"
