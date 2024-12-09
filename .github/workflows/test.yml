@@ -34,4 +34,7 @@ jobs:
       - name: Copy the specific files
         run: |
           ls -a /home/runner/work/MFE1
-          ls -a /home/runner/work/MFE1/internmediate
+          echo "Copying files"
+          ls -a /home/runner/work/MFE1/MFE1
+          echo "Copying files"
+          ls -a /home/runner/work/MFE1/MFE1/internmediate
