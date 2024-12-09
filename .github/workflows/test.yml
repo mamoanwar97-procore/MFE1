@@ -22,19 +22,15 @@ jobs:
         run: python python.py
 
       - name: Make the directory
-        run: mkdir -p /home/runner/work/MFE1/MFE1/internmediate
+        run: mkdir -p /home/runner/work/MFE1/MFE1/intermediate
 
       - name: Checkout out intermediate repo
         uses: actions/checkout@v3
         with:
           repository: "mamoanwar97-procore/Intermediate"
           token: ${{ secrets.INTERMEDIATE_TOKEN }}
-          path: internmediate
+          path: intermediate
 
       - name: Copy the specific files
         run: |
-          ls -a /home/runner/work/MFE1
-          echo "Copying files"
-          ls -a /home/runner/work/MFE1/MFE1
-          echo "Copying files"
-          ls -a /home/runner/work/MFE1/MFE1/internmediate
+          cp -r /home/runner/work/MFE1/MFE1/translations /home/runner/work/MFE1/MFE1/intermediate
