@@ -22,7 +22,7 @@ jobs:
         run: python python.py
 
       - name: Make the directory
-        run: mkdir -p /home/runner/work/MFE1/internmediate
+        run: mkdir -p /home/runner/work/MFE1/MFE1/internmediate
 
       - name: Checkout out intermediate repo
         uses: actions/checkout@v3
