@@ -3,57 +3,57 @@ name: Python Script Workflow
 on:
   pull_request:
     branches:
-      - master
+      - main
     types:
       - closed
 
 jobs:
   run-python-script:
     if: github.event.pull_request.merged == true
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v3
-  
-        - name: Set up Python
-          uses: actions/setup-python@v5
-          with:
-            python-version: "3.10"
-  
-        - name: Run Python script
-          run: python python.py
-  
-        - name: Make the directory
-          run: mkdir -p /home/runner/work/MFE1/MFE1/intermediate
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-        - name: Set up Git
-          run: |
-            git config --global user.name "mamoanwar97-procore"
-            git config --global user.email "mahmoud.m.anwar@procore.com"
-  
-        - name: Checkout out intermediate repo
-          uses: actions/checkout@v3
-          with:
-            repository: "mamoanwar97-procore/Intermediate"
-            token: ${{ secrets.INTERMEDIATE_TOKEN }}
-            path: intermediate
-            ref: MFE_en
-  
-        - name: Commit updated translations to intermediate repo
-          run: |
-            cd /home/runner/work/MFE1/MFE1/intermediate
-            if git show-ref --verify --quiet refs/heads/update-translations-mfe1; then
-              git checkout update-translations-mfe1
-            else
-              git checkout -b update-translations-mfe1
-            fi
-            mkdir -p /home/runner/work/MFE1/MFE1/intermediate/MFE1
-            cp -r /home/runner/work/MFE1/MFE1/translations /home/runner/work/MFE1/MFE1/intermediate/MFE1
-            if [ -n "$(git status --porcelain)" ]; then
-              git add .
-              git commit -m "Update translations 🎉"
-              git push origin update-translations-mfe1 --force
-            else
-              echo "No changes to commit"
-            fi
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run Python script
+        run: python python.py
+
+      - name: Make the directory
+        run: mkdir -p /home/runner/work/MFE1/MFE1/intermediate
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "mamoanwar97-procore"
+          git config --global user.email "mahmoud.m.anwar@procore.com"
+
+      - name: Checkout out intermediate repo
+        uses: actions/checkout@v3
+        with:
+          repository: "mamoanwar97-procore/Intermediate"
+          token: ${{ secrets.INTERMEDIATE_TOKEN }}
+          path: intermediate
+          ref: MFE_en
+
+      - name: Commit updated translations to intermediate repo
+        run: |
+          cd /home/runner/work/MFE1/MFE1/intermediate
+          if git show-ref --verify --quiet refs/heads/update-translations-mfe1; then
+            git checkout update-translations-mfe1
+          else
+            git checkout -b update-translations-mfe1
+          fi
+          mkdir -p /home/runner/work/MFE1/MFE1/intermediate/MFE1
+          cp -r /home/runner/work/MFE1/MFE1/translations /home/runner/work/MFE1/MFE1/intermediate/MFE1
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "Update translations 🎉"
+            git push origin update-translations-mfe1 --force
+          else
+            echo "No changes to commit"
+          fi
