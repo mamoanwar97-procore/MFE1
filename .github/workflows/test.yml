@@ -14,8 +14,7 @@ jobs:
 
     steps:
       - name: Collect PR INFO
-        run:
-          PR_TITLE="${{ github.event.pull_request.title }}"
+        run: PR_TITLE="${{ github.event.pull_request.title }}"
           echo "$PR_TITLE"
 
       - name: Checkout code
@@ -82,15 +81,15 @@ jobs:
             mv temp.yml /home/runner/work/MFE1/MFE1/intermediate/pr_info.yml
             git add .
             git commit -m "Update translations 🎉"
-            git push origin mfe-translations-collection --force
+            git push origin mfe-translations-collection
             echo "::set-output name=new_changes::true"
           else
             echo "No changes to commit"
           fi
-    
+
       - name: Check for existing PR
         id: check_pr
-        env: 
+        env:
           GH_TOKEN: ${{ secrets.INTERMEDIATE_TOKEN }}
         run: |
           PR_EXISTS=$(gh pr list --repo mamoanwar97-procore/Intermediate --head mfe-translations-collection --state open --json number --jq '.[].number')
